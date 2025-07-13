@@ -235,6 +235,18 @@ button.card {
 </head>
 <body>
   <audio id="bg-music" src="bgm.mp3" autoplay loop></audio>
+  <script>
+  const bgMusic = document.getElementById('bg-music');
+
+  function startMusic() {
+    bgMusic.play().catch((err) => console.log(err));
+    // Remove the listener after first play:
+    window.removeEventListener('click', startMusic);
+  }
+
+  // Listen for ANY click on the page:
+  window.addEventListener('click', startMusic);
+  </script>
   <div id="score">Score: 0</div>
   <div id="streak">Streak: 0</div>  <!-- Welcome Screen -->  <div id="home" class="screen active">
     
