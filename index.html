@@ -237,9 +237,10 @@ button.card {
   <audio id="bg-music" src="bgm.mp3" autoplay loop></audio>
   <script>
   const bgMusic = document.getElementById('bg-music');
-
+  // volume from 0.0 to 1.0
   function startMusic() {
     bgMusic.play().catch((err) => console.log(err));
+    bgMusic.volume = 0.2; 
     // Remove the listener after first play:
     window.removeEventListener('click', startMusic);
   }
