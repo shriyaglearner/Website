@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lingoverse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/04b-03" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+  
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      font-Size : "1.5rem";
+      height: 100vh;
+      margin: 0;
+      /* Start gradient */
+      background: linear-gradient(-45deg,
+      #ee7752,
+      #e73c7e,
+      #23a6d5,
+      #23d5ab,
+      #ff7eb3,
+      #65d6ce,
+      #f9ed69,
+      #f08a5d
+    );
+      background-size: 900% 900%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .active {
+      display: flex;
+    }
+    @font-face {
+      font-family: 'PixelFont';
+      src: url('./IntraNet.otf') format('opentype');
+    }
+    h1 {
+      font-family: 'PixelFont'; /* pixel retro font */
+      font-size: 4rem;
+      margin-bottom: 10px;
+      color: #fff; /* will change with JS */
+      text-shadow: 5px 5px 0 #000;
+      letter-spacing: 2px;
+      transition:
+        color 0.5s ease,
+        text-shadow 0.5s ease;
+      
+      /* Make text crisp */
+      image-rendering: pixelated;
+      -webkit-font-smoothing: none;
+      font-smooth: never;
+    }    
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+    .retro-text {
+      font-family: 'PixelFont';
+      font-size: 64px;
+      text-shadow: 4px 4px 0 #000, 6px 6px 0 #333;
+      letter-spacing: 2px;
+      position: relative;
+      -webkit-font-smoothing: none;
+      font-smooth: never;
+      transition: text-shadow 0.5s ease, background 0.5s ease;
+      background: var(--gradient, linear-gradient(270deg, #f06, #3cf, #0ff, #f06));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+
+      background-size: 400% 400%;
+      animation: moveBG 5s ease infinite;
+    }
+    
+    @keyframes moveBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    h1.retro-text {
+      font-family: 'PixelFont'; /* or your pixel font */
+      font-size: 8vw; /* multiple of 8 for pixel crispness */
+      position: relative;
+      color: #fff; /* fallback */
+      text-shadow: 2px 2px 0 #000, 4px 4px 0 #333;
+      letter-spacing: 2px;
+      -webkit-font-smoothing: none;
+      font-smooth: never;
+      transition: text-shadow 0.5s ease;
+    }
+    
+    h1.retro-text::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #f06, #3cf);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+      transition: background 0.5s ease;
+    }    
+    
+    
+    button {
+      font-family: 'Orbitron', sans-serif;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #00c9ff;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: rgb(255, 48, 255);
+    }
+
+    .card {
+  position: relative;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #00c9ff;
+  color: white; /* ensure text is white */
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+  animation: rotBGimg 3s linear infinite;
+}
+
+.card span {
+  position: relative;
+  z-index: 1;
+}
+
+button.card {
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  background: none; /* no normal background */
+}
+
+    @keyframes rotBGimg {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    
+    .card::after {
+      content: "";
+      position: absolute;
+      background: #07182e;
+      inset: 5px;
+      border-radius: 15px;
+    }
+</style>
+</head>
+<body>
+    <audio id="bg-music" src="bgm.mp3" autoplay loop></audio>
+    <script>
+    const bgMusic = document.getElementById('bg-music');
+    // volume from 0.0 to 1.0
+    function startMusic() {
+      bgMusic.play()
+      bgMusic.volume = 0.2; 
+      // Remove the listener after first play
+    }
+    </script>
+
+    <button class=card onclick="startGame('normal')"><span>Individual Mode</span></button>
+    <button class=card onclick="startGame('normal')"><span>Team Mode</span></button>
+    <button class=card onclick="startGame('challenge')"><span>Challenge Mode</span></button>
+    
+</body>
+</html>
